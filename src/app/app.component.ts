@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'instagram';
+  buttonText:string = "button text from parent"
+  parentFunction(data):any{
+    alert(data)
+  }
 }
