@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -120,5 +121,8 @@
       }
     }
   },
-  "defaultProject": "instagram"
+  "defaultProject": "instagram",
+  "cli": {
+    "analytics": "a330c929-f672-45f1-887a-657bae69696b"
+  }
 }
