@@ -1,1 +1,12 @@
-<p>comments works!</p>
+<div class="post-comments-block">
+    <div class="comments-buttons">
+        <button class="btn btn-primary" (click)="showComments()">{{buttonText}}</button>
+        <button class="btn btn-outline-primary" (click) = "showForm()" >add comment</button>
+    </div>
+    
+    <app-add-commnet-form [hidden] = 'showCommentForm' (addComment) = 'getNewComment($event)' ></app-add-commnet-form>
+    <div class="comments">
+        <app-comment [hidden] = "commentsHide" *ngFor="let comment of comments" [comment] = 'comment'></app-comment>
+    </div>
+    
+</div>

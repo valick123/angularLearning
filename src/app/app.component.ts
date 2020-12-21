@@ -7,12 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
   post:any = {
-    author:"some name",
-    img:"link",
-    lokes:100,
-    comments:[
-      
-    ]
+    author:"valick123",
+    img:"",
+    likes:10,
+    comments:[]
   }
   title = 'instagram';
   ngOnInit(): void {
@@ -20,6 +18,10 @@ export class AppComponent {
     .then(response=>response.json())
     .then(data=>{
       this.post.comments.push(...data);
+    })
+    fetch(`https://picsum.photos/200`)
+    .then(response=>{
+     this.post.img = response.url;
     })
   }
 
