@@ -11,7 +11,6 @@ export class ActionsComponent implements OnInit {
   @Input()
     likes:any
   ngOnInit(): void {
-    console.log(this.likes)
   }
   likePost():void{
     this.likes++

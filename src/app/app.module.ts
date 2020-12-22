@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -12,7 +13,8 @@ import { ActionsComponent } from './post/post-footer/actions/actions.component';
 import { CommentComponent } from './post/post-footer/comments/comment/comment.component';
 import { ActionButtonComponent } from './post/post-footer/actions/action-button/action-button.component';
 import { AddCommnetFormComponent } from './post/post-footer/comments/add-commnet-form/add-commnet-form.component';
-import {FormsModule} from '@angular/forms'
+import { GenderPipe } from './gender.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,7 @@ import {FormsModule} from '@angular/forms'
     CommentComponent,
     ActionButtonComponent,
     AddCommnetFormComponent,
+    GenderPipe,
   ],
   imports: [
     BrowserModule,

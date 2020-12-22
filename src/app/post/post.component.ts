@@ -12,8 +12,6 @@ export class PostComponent implements OnInit {
   postInfo:any
 
   ngOnInit(): void {
-    
-    console.log(this.postInfo)
   }
 
 }

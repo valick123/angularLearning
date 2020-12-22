@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent {
   post:any = {
     author:"valick123",
+    gender:"male",
     img:"",
     likes:10,
     comments:[]

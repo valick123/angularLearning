@@ -13,7 +13,7 @@ export class AddCommnetFormComponent implements OnInit {
   ngOnInit(): void {
   }
   getNewComment(values,e):void{
-    e.preventDefault()
-    this.addComment.emit(values)
+    e.preventDefault();
+    this.addComment.emit(values);
   }
 }
