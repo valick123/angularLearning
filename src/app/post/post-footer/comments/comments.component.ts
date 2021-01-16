@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
@@ -32,5 +31,6 @@ export class CommentsComponent implements OnInit {
   }
   getNewComment(data):void{
     this.comments.unshift(data);
+    // this.store.addNewComment(data);
   }
 }
