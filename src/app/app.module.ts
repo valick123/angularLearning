@@ -14,6 +14,7 @@ import { CommentComponent } from './post/post-footer/comments/comment/comment.co
 import { ActionButtonComponent } from './post/post-footer/actions/action-button/action-button.component';
 import { AddCommnetFormComponent } from './post/post-footer/comments/add-commnet-form/add-commnet-form.component';
 import { GenderPipe } from './gender.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { GenderPipe } from './gender.pipe';
   imports: [
     BrowserModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

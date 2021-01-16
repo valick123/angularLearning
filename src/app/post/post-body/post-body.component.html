@@ -1,4 +1,6 @@
 <div class='post-body card-body' >
-    <img [src]="bodyInfo" class='card-img'>
-    
+    <h2>{{bodyInfo.postTitle}}</h2>
+    <img [src]="bodyInfo.img" class='card-img'>
+    <p>{{bodyInfo.postText}}</p>
+    <a [href]="'mailto:bodyInfo.email'">{{bodyInfo.email}}</a>
 </div>

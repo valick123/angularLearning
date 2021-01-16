@@ -2,10 +2,14 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="post card" >
-                <app-post-header [headerInfo] = '{name:postInfo.author,
-                                                  gender:postInfo.gender}' ></app-post-header>
-                <app-post-body [bodyInfo] = 'postInfo.img'></app-post-body>
-                <app-post-footer [footerInfo] = postInfo ></app-post-footer>
+                <app-post-header [headerInfo] = '{name:post.author,
+                                                  gender:post.gender}' ></app-post-header>
+                <app-post-body [bodyInfo] = '{img:post.img,
+                                              postText:post.postText,
+                                              postTitle:post.postTitle,
+                                              email:post.email}'></app-post-body>
+                <app-post-footer [footerInfo] = '{likes:post.likes,
+                                                  comments:post.comments}' ></app-post-footer>
             </div>
         </div>
     </div>

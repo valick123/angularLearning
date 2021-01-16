@@ -9,7 +9,7 @@ export class PostFooterComponent implements OnInit {
 
   constructor() { }
   @Input()
-      footerInfo:any
+    footerInfo: any
   ngOnInit(): void {
   }
 

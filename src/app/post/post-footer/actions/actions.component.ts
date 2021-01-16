@@ -9,10 +9,18 @@ export class ActionsComponent implements OnInit {
 
   constructor() { }
   @Input()
-    likes:any
+    likes:any;
+    buttonColor:string = "transparent"
+    isLiked: boolean = false;
   ngOnInit(): void {
   }
   likePost():void{
-    this.likes++
+    this.isLiked = !this.isLiked;
+    if(this.isLiked){
+      this.likes++;
+    }else{
+      this.likes--;
+    }
+    
   } 
 }

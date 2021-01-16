@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {StorageService} from '../storage.service';
 
 @Component({
   selector: 'app-post',
@@ -7,15 +8,31 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PostComponent implements OnInit {
  
-  constructor() { }
+  constructor(private storage: StorageService) { }
   @Input() 
   postInfo:any
 
+  post = {
+    author:'',
+    comments:[],
+    email:'',
+    gender:'',
+    id:0,
+    img:'',
+    likes:0,
+    postText:'',
+    postTitle:''
+  }
+  
   ngOnInit(): void {
-    // fetch(`https://picsum.photos/v2/list?limit=10`)
-    //   .then((response => response.json()))
-    //   .then((data) => console.log(data));
-    // console.log(`postInfo: `, this.postInfo, `\nfrom post.component`);
+    this.post = Object.assign({},this.postInfo);
+        this.post.comments = [...this.storage.getData('comments').filter((item)=>item.postId === this.postInfo.id?true:false)];
+        this.storage.getData('pictures').forEach((pic)=>{
+          if(pic.id === this.post.id){
+            this.post.img = pic.download_url;
+      }
+    })
+    console.log(this.post)
   }
 
 }
