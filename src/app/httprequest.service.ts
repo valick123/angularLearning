@@ -11,9 +11,9 @@ export class HTTPRequestService {
       .then(response => response.json())
       .then(data =>{
         if(fields[0] !== 'all'){
-          let newData: any[]=[];
-          data.forEach((item)=>{
-            let newObj:any ={}
+          const newData: any[] = [];
+          data.forEach((item) => {
+            const newObj: any = {}
             for(let key in item){
               fields.forEach((field)=>{
                 if(key === field){

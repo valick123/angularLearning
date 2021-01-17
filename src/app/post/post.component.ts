@@ -7,32 +7,28 @@ import {StorageService} from '../storage.service';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
- 
   constructor(private storage: StorageService) { }
-  @Input() 
-  postInfo:any
-
+  @Input() postInfo: any;
   post = {
-    author:'',
-    comments:[],
-    email:'',
-    gender:'',
-    id:0,
-    img:'',
-    likes:0,
-    postText:'',
-    postTitle:''
+    author: '',
+    comments: [],
+    email: '',
+    gender: '',
+    id: 0,
+    img: '',
+    likes: 0,
+    postText: '',
+    postTitle: ''
   }
-  
-  ngOnInit(): void {
-    this.post = Object.assign({},this.postInfo);
-        this.post.comments = [...this.storage.getData('comments').filter((item)=>item.postId === this.postInfo.id?true:false)];
-        this.storage.getData('pictures').forEach((pic)=>{
-          if(pic.id === this.post.id){
+    ngOnInit(): void {
+        this.post = Object.assign({}, this.postInfo);
+        this.post.comments = [...this.storage.getData('comments').filter((item) => item.postId === this.postInfo.id ? true : false)];
+        this.storage.getData('pictures').forEach((pic) => {
+          if (pic.id === this.post.id){
             this.post.img = pic.download_url;
-      }
-    })
-    console.log(this.post)
+          }
+        }
+      ) 
   }
 
 }

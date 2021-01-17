@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {StorageService} from './storage.service';
-import {HTTPRequestService} from './httprequest.service'
+import {HTTPRequestService} from './httprequest.service';
+import {PicsServiceService} from './pics-service.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,21 +9,17 @@ import {HTTPRequestService} from './httprequest.service'
 })
 
 export class AppComponent {
-  constructor(private storage: StorageService, private HTTP: HTTPRequestService){}
+  constructor(public storage: StorageService, private HTTP: HTTPRequestService, private pics: PicsServiceService ){}
   usersInfo: any[] = [];
-  postsInfo: any[] = []; 
+  postsInfo: any[] = [];
   postList: any[] = [];
-  title: string = 'instagram';
+  title = 'instagram';
   ngOnInit(): void {
       this.HTTP.getData(`https://jsonplaceholder.typicode.com/posts`,['all'])
         .then(posts=>this.postsInfo = [...posts.filter((post)=>post.id >= 11 ? false : true)])
         .then(()=> this.HTTP.getData(`https://jsonplaceholder.typicode.com/users`, ['id','email','name']))
         .then(users => this.usersInfo = [...users.filter((user)=>user.id >= 11 ? false : true)])
-        .then(()=> this.HTTP.getData(`https://picsum.photos/v2/list?limit=10`,['download_url']))
-        .then((pics)=>{
-          pics.map((item, index)=>item.id = index + 1);
-          this.storage.setData(pics, 'pictures');
-        })
+        .then(() => this.pics.getPics('https://picsum.photos/v2/list?limit=10'))
         .then(()=>{
           let result: any[] = []
           this.postsInfo.forEach((post)=>{
@@ -48,7 +45,6 @@ export class AppComponent {
         .then(comments => this.storage.setData(comments.filter((comment)=>comment.postId>=11?false:true),'comments'))
         .then(()=>{
           this.postList = this.storage.getData('postList')
-          console.log(this.postList)
         })
   }
   
