@@ -1,5 +1,5 @@
 <div class='post-footer card-footer' >
-    <app-actions  [likes] = "footerInfo.likes"></app-actions>
     
-    <app-comments [commentsData] = "footerInfo.comments" ></app-comments>
+    <app-comments [commentsData] = "{comments:footerInfo.comments,
+                                     likes:footerInfo.likes}" ></app-comments>
 </div>

@@ -1,6 +1,6 @@
 <div class='post-body card-body' >
-    <h2>{{bodyInfo.postTitle}}</h2>
-    <img [src]="bodyInfo.img" class='card-img'>
-    <p>{{bodyInfo.postText}}</p>
-    <a [href]="'mailto:bodyInfo.email'">{{bodyInfo.email}}</a>
+    <h2 class='card-subtitle'>{{bodyInfo.postTitle}}</h2>
+    <img [src]="bodyInfo.img" class='post-img card-img-top'>
+    <p class='post-text card-text'>{{bodyInfo.postText}}</p>
+    <a [href]="'mailto:bodyInfo.email'" class="post-link card-link" ><fa-icon [icon] = "faEnvelope" ></fa-icon> {{bodyInfo.email}}</a>
 </div>

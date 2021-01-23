@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {StorageService} from './storage.service';
 import {HTTPRequestService} from './httprequest.service';
 import {PicsServiceService} from './pics-service.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,10 +17,10 @@ export class AppComponent {
   title = 'instagram';
   ngOnInit(): void {
       this.HTTP.getData(`https://jsonplaceholder.typicode.com/posts`,['all'])
-        .then(posts=>this.postsInfo = [...posts.filter((post)=>post.id >= 11 ? false : true)])
+        .then(posts=>this.postsInfo = [...posts.filter((post)=>post.id >= 6 ? false : true)])
         .then(()=> this.HTTP.getData(`https://jsonplaceholder.typicode.com/users`, ['id','email','name']))
-        .then(users => this.usersInfo = [...users.filter((user)=>user.id >= 11 ? false : true)])
-        .then(() => this.pics.getPics('https://picsum.photos/v2/list?limit=10'))
+        .then(users => this.usersInfo = [...users.filter((user)=>user.id >= 6 ? false : true)])
+        .then(() => this.pics.getPics('https://picsum.photos/v2/list?limit=6'))
         .then(()=>{
           let result: any[] = []
           this.postsInfo.forEach((post)=>{
@@ -42,7 +43,7 @@ export class AppComponent {
           this.storage.setData(result,'postList');
         })
         .then(()=> this.HTTP.getData(`https://jsonplaceholder.typicode.com/comments`))
-        .then(comments => this.storage.setData(comments.filter((comment)=>comment.postId>=11?false:true),'comments'))
+        .then(comments => this.storage.setData(comments.filter((comment)=>comment.postId>=6?false:true),'comments'))
         .then(()=>{
           this.postList = this.storage.getData('postList')
         })

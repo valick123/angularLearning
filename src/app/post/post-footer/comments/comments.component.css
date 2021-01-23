@@ -1,10 +1,16 @@
 .post-comments-block{
-    padding: 10px 0;
+    padding:0;
 }
 .post-comments-block .comments-buttons{
     display: flex;
-    justify-content: space-around;
+    justify-content:flex-start;
+    
 }
 .post-comments-block .comments{
     padding: 10px 0;
+}
+.btn{
+    margin-left: 5px;
+    padding: 5px;
+    text-decoration: none;
 }

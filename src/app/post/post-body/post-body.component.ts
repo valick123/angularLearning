@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons"
 
 @Component({
   selector: 'app-post-body',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./post-body.component.css']
 })
 export class PostBodyComponent implements OnInit {
-
+  faEnvelope = faEnvelope;
   constructor() { }
   @Input() 
       bodyInfo:any 

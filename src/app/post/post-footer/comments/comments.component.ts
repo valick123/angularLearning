@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {faHeart, faComment, faPaperPlane} from "@fortawesome/free-regular-svg-icons"
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
@@ -9,12 +10,16 @@ export class CommentsComponent implements OnInit {
   commentsHide:boolean = true;
   comments:any[]=[];
   showCommentForm:boolean = true;
+  isLiked: boolean = false;
+  faHeart = faHeart;
+  faComment = faComment;
+  faPaperPlane = faPaperPlane
   constructor() { }
   @Input()
       commentsData:any;
       
   ngOnInit(): void {
-    this.comments = this.commentsData;
+    this.comments = this.commentsData.comments;
    
   }
   showComments():void{
@@ -25,7 +30,22 @@ export class CommentsComponent implements OnInit {
       this.buttonText = "hide comments"
     }
   }
- 
+  likePost(btn): void {
+    
+    console.log(btn)
+    if(!this.isLiked){
+      this.commentsData.likes++;
+      this.isLiked = !this.isLiked;
+      btn.classList.remove('btn-link')
+      btn.classList.add('btn-danger')
+    } else{
+       this.commentsData.likes--;
+       this.isLiked = !this.isLiked;
+       btn.classList.remove('btn-danger')
+       btn.classList.add('btn-link')
+    }
+   
+  }
   showForm():any{
     this.showCommentForm = !this.showCommentForm;
   }
